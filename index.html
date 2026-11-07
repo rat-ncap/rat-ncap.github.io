@@ -1,0 +1,270 @@
+<!DOCTYPE html> 
+<html>
+<head>
+  <!-- Metadata -->
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Rat NCAP, a biologically inspired ANN architecture for rat locomotion based on neural circuits in the limbs, spinal cord, and brainstem.">
+  <meta name="keywords" content="neuroscience, motor control">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+
+  <!-- Webpage -->
+  <title>Neural Circuit Architectural Priors for Rat Locomotion</title>
+  <link rel="icon" href="static/images/favicon.png">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <!-- <link rel="stylesheet" href="static/css/bulma-carousel.min.css"> -->
+  <!-- <link rel="stylesheet" href="static/css/bulma-slider.min.css"> -->
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  
+  <!-- JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <!-- <script src="static/js/bulma-carousel.min.js"></script> -->
+  <!-- <script src="static/js/bulma-slider.min.js"></script> -->
+  <!-- <script src="static/js/index.js"></script> -->
+</head>
+
+
+<body>
+
+<!-- Title -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Neural Circuit Architectural Priors for Rat Locomotion</h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/nikhilxb/">Nikhil X. Bhattasali</a>*,
+            </span>
+            <span class="author-block">
+              <a href="https://jaron-cui.github.io/">Jaron Cui</a>*,
+            </span>
+            <span class="author-block">
+              <a href="https://www.lerrelpinto.com/">Lerrel Pinto</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://gracewlindsay.com/">Grace W. Lindsay</a>
+            </span>
+          </div>
+          
+          <div class="is-size-5 publication-authors">New York University</div>
+
+          <div class="column has-text-centered">
+            <!-- Paper Button -->
+            <span class="link-block">
+              <a href="https://arxiv.org/abs/2611.23364"
+                  class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                </span>
+                <span>Paper</span>
+              </a>
+            </span>
+
+            <!-- Code Button -->
+            <span class="link-block">
+              <a href="https://github.com/rat-ncap/rat-ncap"
+                  class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Splash -->
+<!-- <section class="hero teaser">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+        <img src="static/images/splash.svg" />
+    </div>
+  </div>
+</section> -->
+
+
+<!-- Abstract -->
+<section class="section hero abstract is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Animals generate behavior through continuous interactions between their neural
+            circuits, bodies, and environment. Embodied simulations provide a means to
+            study these interactions by testing neural circuit models in biologically realistic
+            settings. Recent efforts have developed embodied simulations of diverse animals,
+            and emerging work on biologically grounded neural architectures has begun to
+            integrate circuit connectivity and single-unit dynamics from experimental data
+            into artificial neural networks, introducing stronger inductive biases and closer
+            mechanistic alignment with biology. How can we develop embodied simulations
+            that enable the study of increasingly complex bodies and neural circuits? In this
+            work, we address the challenge through coordinated advances in the simulated
+            body, neural architecture, and training infrastructure. We introduce <i>Rat v2</i>, a
+            biomechanical model that provides an efficient and flexible tool for simulating rat
+            behavior. To control this body, we develop <i>Rat NCAP</i>, a biologically grounded
+            neural architecture for locomotion based on mammalian spinal circuits that incorporates
+            cell-type-specific connectivity and a novel flexor-extensor neuromechanical
+            interface. To optimize circuit parameters, we develop GPU-accelerated simulation
+            and training infrastructure. The integrated system learns to locomote at different
+            speeds and transition between gaits without imitation learning, producing locomotion
+            statistics, kinematics, and cell-type-specific neural activity consistent with
+            experimental data. Systematic analyses reveal that the neuromechanical interface
+            substantially affects trainability and gait quality, and in silico cell-type ablations
+            reproduce known gait phenotypes and predict gait changes under graded perturbations.
+            Together, these findings support the view that embodied simulations at an
+            intermediate level of abstraction can simultaneously reproduce complex behavior
+            and yield mechanistic insights into the neural circuits that generate it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Live demo -->
+<section class="section" id="live-demo">
+  <div class="container is-max-desktop">
+    <h2 class="title">Live Demo</h2>
+    <p class="mb-4">Live in your browser: Rat NCAP running in a physics simulation.</p>
+    <div id="rat-demo"></div>
+    <p class="mt-3">Drag the brainstem command (BC) slider and watch the behavior and circuit activity change together.</p>
+  </div>
+</section>
+<script type="module">
+  import { mountRatDemo } from './static/demo/demo.16a155d466.js';
+  mountRatDemo(document.getElementById('rat-demo'));
+</script>
+
+
+<!-- Videos 1 -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-multiline">
+      <div class="column is-12">
+        <h2 class="title">1. Locomotion Behavior</h2>
+        <p>
+          Rat NCAP learns to walk, trot, and bound within a single model, producing naturalistic stepping and speed-dependent gaits. Prior work in this rat relied on imitation learning to obtain naturalistic behavior [Aldarondo et al., 2024, Zhang et al., 2025] or produced visibly unrealistic movement without it [Merel et al., 2019]. Rat NCAP achieves comparable naturalism using only simple velocity rewards, demonstrating the powerful inductive bias of biological neural circuits.
+        </p>
+      </div>
+      <div class="column is-12">
+        <video controls loop playsinline height="100%" style="display: block; margin: 0 auto;">
+          <source src="static/videos/video_multifixed.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Videos 2 -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-multiline">
+      <div class="column is-12">
+        <h2 class="title">2. Gait Transitions</h2>
+        <p>
+          Increasing brainstem command within a single episode reveals distinct gait patterns at each speed, consistent with speed-dependent recruitment of distinct locomotor patterns. Notably, gait transitions are not trained and reflect zero-shot generalization.
+        </p>
+      </div>
+      <div class="column is-12 ">
+        <video controls loop playsinline height="100%" style="display: block; margin: 0 auto;">
+          <source src="static/videos/video_variable.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Videos 3 -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-multiline">
+      <div class="column is-12">
+        <h2 class="title">3. Gait Shapes</h2>
+        <p>
+          The neuromechanical interface determines not only trainability, but also the qualitative character of learned gaits.
+          The flexor-extensor interface produces qualitatively different locomotion: it uses substantially more negative mechanical power than the other interfaces, storing and returning energy through its antagonistic spring structure analogous to tendon compliance.
+          This compliance is visible in joint trajectories: position and position-stiffness produce sharp arcs with brief ground contact, while flexor-extensor produces rounded trajectories with extended stance as the paw deforms along the ground.
+        </p>
+      </div>
+      <div class="column is-12">
+        <video controls loop playsinline height="100%" style="display: block; margin: 0 auto;">
+          <source src="static/videos/video_gait_shapes.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Videos 4 -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-multiline">
+      <div class="column is-12">
+        <h2 class="title">4. Cell-Type Ablations</h2>
+        <p>
+          A central advantage of a biologically grounded circuit model is the ability to perform targeted <i>in silico</i> ablations of identified cell types, which is an analysis not possible with black-box controllers.
+          In mice, ablating V0v neurons eliminates trot, and additionally ablating V0d neurons leaves bound as the only coordinated gait [Bellardita and Kiehn, 2015].
+          Rat NCAP reproduces this combined phenotype: scaling V0v and V0d activity to zero replaces trot with bound.
+          In contrast, scaling V3f and V3a activity to zero leaves trot intact, so not all commissural populations are equally critical for trot.
+          Together, these results show that RG cell-type phenotypes persist in an embodied setting and yield experimentally testable predictions.
+        </p>
+      </div>
+
+      <div class="column is-6">
+        <h3 class="subtitle mb-4 has-text-centered">Ablated: V0v, V0d</h3>
+        <p class="mb-4"></p>
+        <video controls loop playsinline height="100%">
+          <source src="static/videos/video_ablation_v0v_v0d.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <div class="column is-6">
+        <h3 class="subtitle mb-4 has-text-centered">Ablated: V3f, V3a</h3>
+        <p class="mb-4"></p>
+        <video controls loop playsinline height="100%">
+          <source src="static/videos/video_ablation_v3f_v3a.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container is-max-desktop">
+    <div class="columns is-multiline">
+      <div class="column is-12">
+        <p>
+          This website is adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> and licensed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
